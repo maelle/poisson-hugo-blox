@@ -21,14 +21,16 @@
 {{/* E.g. access a `show_title` field via `$block.design.show_title`. */}}
 
 <!-- Contact widget -->
-<div class="row contact-widget">
-  <div class="col-12 col-lg-4 section-heading">
-    <h1>{{ with $title }}{{ . | markdownify }}{{ end }}</h1>
-    {{ with $subtitle }}<p>{{ . | markdownify }}</p>{{ end }}
+<div class="flex flex-col items-center max-w-prose mx-auto gap-3 justify-center">
+  <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">
+    {{ $title | markdownify }}
+  </div>
+  <div class="prose prose-slate lg:prose-xl dark:prose-invert max-w-prose">
+    {{ $text | markdownify }}
   </div>
   <div class="col-12 col-lg-8">
 
-    <div class="mb-3">
+    <div class="mb-6 text-3xl text-gray-900 dark:text-white">
       <form method='POST' name='contact'><input type='hidden' name='form-name' value='contact' />
         <div class="form-group form-inline">
           <label class="sr-only" for="inputName">Name</label>
